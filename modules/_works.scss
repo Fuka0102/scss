@@ -1,0 +1,33 @@
+.p-works-images-list {
+
+    margin-top: rem(48);
+
+    &__item {
+
+        &+& {
+            margin-top: rem(48);
+        }
+    }
+}
+
+
+.p-works {
+
+    &__info {
+        margin-top: rem(24);
+    }
+
+}
+
+.p-works-desc {
+    &__main {
+        text-align: center;
+    }
+
+    &__tool {
+        font-size: rem(14);
+        text-align: center;
+        color: #585858;
+        margin-top: rem(16);
+    }
+}

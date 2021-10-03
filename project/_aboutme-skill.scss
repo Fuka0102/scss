@@ -1,0 +1,9 @@
+@use '../global'as global;
+
+.p-aboutme-skill {
+    &__ttl {
+        display: block;
+        font-weight: bold;
+        ;
+    }
+}

@@ -1,0 +1,385 @@
+body {
+    font-family: 'Montserrat',
+        sans-serif;
+    margin: 0;
+    font-size: rem(16);
+}
+
+img {
+    max-width: 100%;
+}
+
+.c-inner {
+    padding: 0 4%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.c-top-ttl {
+    text-align: center;
+    font-size: rem(36);
+    font-family: 'Montserrat',
+        sans-serif;
+    font-weight: bold;
+
+    @include responsive(lg) {
+        font-size: rem(72);
+
+    }
+}
+
+.c-nav-fortab {
+    // pointer-events: none;
+}
+
+.l-section {
+    padding: rem(48) 0 2rem 0;
+
+    &+& {
+        padding-top: rem(120);
+    }
+}
+
+.l-hero-section {
+    @extend .l-section;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+}
+
+.canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.p-kv {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+}
+
+.char {
+    stroke: rgba(255, 255, 255, 0);
+    fill: rgba(255, 255, 255, 0);
+    stroke-width: 1;
+    transition-duration: 3s;
+}
+
+.char.is-active {
+    stroke: #000;
+    animation: text_anim_kf 2s linear forwards;
+    stroke-dasharray: 1000;
+}
+
+@keyframes text_anim_kf {
+    0% {
+        stroke-dashoffset: 1000;
+        fill: rgba(255, 255, 255, 0)
+    }
+
+    10% {
+        stroke-dashoffset: 1000;
+        fill: rgba(255, 255, 255, 0)
+    }
+
+    60% {
+        stroke-dashoffset: 500;
+        fill: rgba(255, 255, 255, 0)
+    }
+
+    80% {
+        stroke-dashoffset: 200;
+        fill: #111
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke-width: 0;
+        fill: #111
+    }
+}
+
+.p-kv__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+}
+
+.scroll {
+    padding-top: 60px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 2;
+    display: inline-block;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: #111;
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+
+.scroll.is-show {
+    opacity: 1;
+}
+
+.scroll span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 50px;
+    margin-left: -15px;
+    border: 2px solid #111;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.scroll span::before {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: #111;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+
+@media(min-width: 768px) {
+    .p-kv__logo {
+        width: 645px;
+    }
+
+}
+
+.p-nav {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, .6);
+    z-index: 100;
+    font-family: 'Montserrat',
+        sans-serif;
+
+    @include responsive(lg) {
+        position: fixed;
+        left: 5%;
+        bottom: 5%;
+        background-color: transparent;
+        top: auto;
+        opacity: 0;
+        transition: opacity .3s linear;
+
+        &.is-show {
+            opacity: 1;
+        }
+    }
+
+    &__list {
+        display: flex;
+        width: 100%;
+
+        @include responsive(lg) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+
+    &__item {
+        width: calc(100% / 4);
+        font-weight: bold;
+
+        @include responsive(lg) {
+            width: 100%;
+            display: inline-block;
+
+            &+& {
+                margin-top: rem(32);
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        padding: rem(24) rem(8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(16);
+
+        // @include responsive(md) {
+        //     font-size: vw(6);
+        // }
+
+        @include responsive(lg) {
+            padding: rem(12) rem(8);
+            justify-content: flex-start;
+            font-size: rem(20);
+        }
+
+    }
+
+}
+
+.p-works {
+
+    &__tab {
+        display: flex;
+        padding: 0 rem(16);
+        margin-top: rem(32);
+        font-weight: bold;
+
+        @include responsive(lg) {
+            margin-top: rem(64);
+        }
+    }
+
+    &__cont {
+        margin-top: rem(48);
+        display: none;
+    }
+
+    &__gridbox {
+        display: grid;
+        gap: rem(32);
+
+        @include responsive(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+}
+
+.p-works-tab {
+
+    &__btn {
+        width: calc(100% / 3);
+        text-align: center;
+        padding: rem(4) 0;
+
+        &.is-active {
+            border-radius: 20px;
+            border: 2px solid #2f2f2f;
+            background-color: #2f2f2f;
+            color: #fff;
+        }
+    }
+}
+
+.p-works-item {
+
+    display: block;
+
+    &:hover {
+        img {
+            transform: scale(1.2);
+        }
+    }
+
+    &__name {
+        text-align: center;
+        font-size: rem(20);
+    }
+
+    &__image {
+        margin-top: rem(10);
+        overflow: hidden;
+
+        img {
+            display: block;
+            transition: transform .4s;
+        }
+
+    }
+}
+
+.p-aboutme {
+    &__gridbox {
+        display: grid;
+        margin-top: rem(32);
+        gap: rem(18);
+
+        @include responsive(md) {
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+
+        @include responsive(lg) {
+            margin-top: rem(64);
+        }
+    }
+
+    &__image {
+        text-align: center;
+    }
+
+    // &__text-area {
+    //     text-align: center;
+    // }
+}
+
+.p-career {
+    margin-top: rem(80);
+
+
+    &__blk {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-left: 2px solid #111;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: rem(10);
+            height: rem(10);
+            border: 2px solid #111;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-60%, 50%);
+
+        }
+
+        &+& {
+            padding-top: rem(24);
+
+            @include responsive(lg) {
+                padding-top: rem(48);
+            }
+        }
+    }
+
+    &__year {
+        padding-left: 5%;
+        font-size: rem(18);
+
+        @include responsive(lg) {
+            font-size: rem(24);
+        }
+    }
+
+    &__desc {
+        padding-left: 5%;
+        margin-top: rem(8);
+    }
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.bold {
+    font-weight: 600;
+}

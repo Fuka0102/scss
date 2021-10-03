@@ -1,0 +1,41 @@
+@use '../global'as global;
+
+
+.p-career {
+    margin-top: 8rem;
+
+
+    &__blk {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border-left: 2px solid #111;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #111;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-60%, 50%);
+
+        }
+
+        &+& {
+            padding-top: 3.6rem;
+        }
+    }
+
+    &__year {
+        padding-left: 5%;
+        font-size: global.$mediumFontSize;
+    }
+
+    &__desc {
+        padding-left: 5%;
+        margin-top: .8rem;
+    }
+}

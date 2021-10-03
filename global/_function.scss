@@ -1,0 +1,26 @@
+// @function rem($px) {
+//     @return $px / .1rem;
+// }
+
+// @function vw($px, $baseWidth: 1000) {
+//     @return $px / $baseWidth * 100vw;
+// }
+
+$breakpoints: ('xs': (min-width: 0),
+'sm': (min-width: 640px),
+'md': (min-width: 768px),
+'lg': (min-width: 1024px),
+'xl': (min-width: 1280px)) !default;
+
+@mixin responsive($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    // マップ型で定義されていない値が呼び出された時はエラーを返す
+    @else {
+        @error '指定されたブレークポイントは定義されていません。'+'指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}';
+    }
+}

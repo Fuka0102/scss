@@ -1,0 +1,35 @@
+@use '../global'as global;
+
+
+.p-aboutme {
+    &__gridbox {
+        display: grid;
+        margin-top: 3.2rem;
+        gap: 1.8rem;
+
+        @include global.responsive(md) {
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+
+        @include global.responsive(lg) {
+            margin-top: 6.4rem;
+        }
+    }
+
+    &__image {
+        text-align: center;
+    }
+
+    &__text {
+        &+& {
+            margin-top: 1rem;
+        }
+    }
+
+    &__skill {
+        margin-top: 1.6rem;
+        color: global.$lightColor;
+    }
+
+}

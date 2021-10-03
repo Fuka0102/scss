@@ -1,0 +1,13 @@
+@use '../global'as global;
+
+.c-top-ttl {
+    text-align: center;
+    font-size: global.$mediumTtlFontSize;
+    font-family: 'Montserrat',
+        sans-serif;
+    font-weight: bold;
+
+    @include global.responsive(lg) {
+        font-size: global.$largeTtlFontSize;
+    }
+}

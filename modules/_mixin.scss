@@ -1,0 +1,40 @@
+
+@mixin responsive($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+
+    // マップ型で定義されていない値が呼び出された時はエラーを返す
+    @else {
+        @error '指定されたブレークポイントは定義されていません。'+'指定できるブレークポイントは次のとおりです。 -> #{map-keys($breakpoints)}';
+    }
+}
+
+
+@mixin btn() {
+    color: #fff;
+    background-color: $btnColor;
+    padding: vw(22) 0;
+    display: block;
+    text-align: center;
+    position: relative;
+    font-size: vw(34);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+
+@mixin arrow() {
+    content: '';
+    display: inline-block;
+    top: 50%;
+    right: 5%;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #111;
+    border-top: 1px solid #111;
+    position: absolute;
+    transform: translateY(-50%) rotate(45deg);
+}

@@ -1,0 +1,106 @@
+@use '../global'as global;
+
+
+.p-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .6);
+    z-index: 100;
+    padding: 1.2rem 0;
+
+    &.is-show {
+        opacity: 1;
+    }
+
+    @include global.responsive(lg) {
+        left: 5%;
+        bottom: 5%;
+        background-color: transparent;
+        top: auto;
+        opacity: 0;
+        transition: opacity .3s linear;
+    }
+
+}
+
+.p-header-nav {
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+
+        @include global.responsive(lg) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2.4rem;
+
+        }
+    }
+
+
+    &__item {
+        width: calc(100% / 4);
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+
+        @include global.responsive(lg) {
+            display: inline-block;
+            text-align: left;
+
+            &+& {
+                margin-top: 2.4rem;
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        padding: .5rem .2rem;
+        font-size: global.$smallFontSize;
+        border-radius: 20px;
+        border: 2px solid transparent;
+
+
+        &:hover {
+            background-color: global.$lightColor;
+            border: 2px solid global.$lightColor;
+            color: #fff;
+        }
+
+        &.is-active {
+            border: 2px solid global.$lightColor;
+            background-color: global.$lightColor;
+            color: #fff;
+            margin-top: -2px;
+        }
+
+        @include global.responsive(lg) {
+            padding: .5rem 1rem;
+            font-size: global.$mediumFontSize;
+            justify-content: flex-start;
+            width: auto;
+        }
+
+    }
+
+}
+
+.p-header-top-nav {
+
+
+    &__item {
+        padding: .5rem .2rem;
+        font-size: global.$mediumFontSize;
+        width: calc(100% / 3);
+
+        @include global.responsive(lg) {
+            font-size: global.$mediumFontSize;
+        }
+    }
+
+}

@@ -1,0 +1,10 @@
+@use '../global'as global;
+
+.l-section {
+    padding: 8rem 0 .2rem 0;
+}
+
+.l-hero-section {
+    @extend .l-section;
+    min-height: 100vh;
+}

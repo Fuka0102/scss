@@ -1,0 +1,8 @@
+@use '../global'as global;
+
+.c-button {
+    background-color: global.$mainColor;
+    padding: 1rem;
+    color: global.$btnTextColor;
+    display: inline-block;
+}
